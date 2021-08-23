@@ -1,0 +1,65 @@
+{
+
+
+    "reActors": [
+
+        { 
+            "id": 1,
+            "name": "sam",
+            "hometown": "THEBOOGIEDOWN"
+        }
+            ,
+        { 
+            "id": 2,
+            "name": "Burt",
+            "hometown": "THEBOOGIEDOWN"
+
+        }
+
+    ]
+
+    ,
+
+    "pets": [
+
+        {
+            "id": 1,
+            "name": "Woobly",
+            "species": "cat"
+        }
+        ,
+        {
+            "id": 2,
+            "name": "Joobly",
+            "species": "dog"
+        }
+
+    ]
+
+
+    ,
+
+    
+    "cats": [
+
+        {
+            "id": 1,
+            "name": "Woobly",
+            "species": "cat"
+        }
+
+    ]
+    ,
+    "dogs": [
+
+        {
+            "id": 1,
+            "name": "Joobly",
+            "species": "dog"
+        }
+
+    ]
+
+
+
+}
