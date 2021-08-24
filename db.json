@@ -12,7 +12,14 @@
         { 
             "id": 2,
             "name": "Burt",
-            "hometown": "THEBOOGIEDOWN"
+            "hometown": ""
+
+        }
+            ,
+        { 
+            "id": 3,
+            "name": "Aidah",
+            "hometown": ""
 
         }
 
@@ -49,7 +56,7 @@
         }
 
     ]
-    ,
+        ,
     "dogs": [
 
         {
