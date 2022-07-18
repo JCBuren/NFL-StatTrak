@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -6,85 +5,60 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
-import NavBar from './NavBar';
+import NavBar from './components/NavBar';
 import Home from './components/Home';
-
-import ReActorContainer from './containers/ReActorContainer';
-
-import CatList from './list/CatList';
-import DogList from './list/DogList';
-
-//  ***  //
-import Pets from './Pets';
-
-import New from './New';
-
+import NflTeamsContainer from './containers/NflTeamsContainer';
+import TeamsList from './list/TeamsList';
+import NewForm from './components/NewForm';
+import TeamStatsComponent from './components/TeamStatsComponent';
+import TeamStatsContainer from './containers/TeamStatsContainer';
 
 
 
 function App() {
 
 
-  const[catList, setCatList] = useState( [] )
-    console.log("STATE OF: ", catList)
-  const[dogList, setDogList] = useState( [] )
-    console.log("STATE OF: ", dogList)
+  const[teamsList, setTeamsList] = useState( [] )
+    // console.log("STATE OF: ", teamsList)
+
 
   useEffect( ()=>{
 
-    fetch("http://localhost:3003/cats")
+    fetch("http://localhost:3000/nflTeams")
     .then(r => r.json())
-    .then(fetchedCats => {console.log(fetchedCats)
+    .then(fetchedNflTeams => {console.log(fetchedNflTeams)
         
-      setCatList(fetchedCats)
-  
-    })
-
-    fetch("http://localhost:3003/dogs")
-    .then(r => r.json())
-    .then(fetchedDogs => {console.log(fetchedDogs)
-        
-      setDogList(fetchedDogs)
+      setTeamsList(fetchedNflTeams)
   
     })
 
   }, [] )
 
+ 
 
+  
+ 
 
   return (<>
 
       <NavBar />
       
-      {/* <Switch> */}
+        <Route exact path="/NflTeams" render={props => <TeamsList {...props} teamsToMap={teamsList} />} > 
 
-        <Route exact path="/">
+          <section class="layout" component> <NflTeamsContainer teamsToMap={teamsList} /> </section>
+        
+        </Route>
+                 
+        <Route exact path="/new" component={NewForm}/> 
+        
+        <Route exact path="/team/:id" component={TeamStatsContainer}/>
+
+       
+
+
+       <Route exact path="/">
           <Home />
-        </Route>
-
-
-        <Route path="/ReActors">
-          <ReActorContainer />
-        </Route>
-
-
-
-  
-
-        <Route exact path="/cats" render={ props => <CatList {...props} catsToMap={catList} />} />
-        <Route exact path="/dogs" component={DogList} />
-
-
-
-
-        <Route exact path="/pets" component={Pets} />
-        {/* WHY U NO WORK */}
-
-
-        <Route exact path="/new" component={New} />
-
-
-      {/* </Switch> */}
+       </Route>
 
   </>);
 
@@ -93,33 +67,3 @@ function App() {
 export default App;
 
 
-
-    {/* <BrowserRouter>
-    </BrowserRouter> */}
-
-{/* 
-  
-< Pets />
-  < Dogs /> [ dogs ]
-      < Dog /> { dog }
-  < Cats /> [ cats ]
-      < Cat /> { dog } 
-
-*/}
-
-
-{/* 
-
-< Pets /> [ data ]
-    < Dogs />
-        [ data ].filter = [ dogs ]
-        < Dog /> { dog }
-    < Cats />
-        [ data ].filter = [ cats ]
-        < Cat /> { cat } 
-
-*/}
-
-
-
-{/* <h1> - NavBar - SHOULD SEE THIS ALL THE TIME </h1> */}
