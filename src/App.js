@@ -24,7 +24,7 @@ function App() {
 
   useEffect( ()=>{
 
-    fetch("http://localhost:3000/nflTeams")
+    fetch("http://localhost:3003/nflTeams")
     .then(r => r.json())
     .then(fetchedNflTeams => {console.log(fetchedNflTeams)
         
@@ -34,10 +34,7 @@ function App() {
 
   }, [] )
 
- 
 
-  
- 
 
   return (<>
 
@@ -48,12 +45,12 @@ function App() {
           <section class="layout" component> <NflTeamsContainer teamsToMap={teamsList} /> </section>
         
         </Route>
-                 
+
         <Route exact path="/new" component={NewForm}/> 
         
         <Route exact path="/team/:id" component={TeamStatsContainer}/>
 
-       
+
 
 
        <Route exact path="/">

@@ -6,7 +6,7 @@ const NewForm =(props)=>{
     const [winsForNewStats, setWinsForNewStats] = useState("")
     const [lossesForNewStats, setLossesForNewStats] = useState("")
     const [tiesForNewStats, setTiesForNewStats] = useState("")
-   
+
 
     function addNewStats( teamStats ) {
   
@@ -50,9 +50,7 @@ const NewForm =(props)=>{
             addNewStats(newStatsForTeams)
 
             alert (confirmSubmit)
-            }
-              }        
-      >
+            }}>
         
         {/* <img class="img-for-input" src="https://img.wallpapersafari.com/desktop/1920/1080/41/48/OH6EQt.jpg"/> */}
 
